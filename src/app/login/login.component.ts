@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // <-- Asegúrate de importar esto
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule], // <-- Importa FormsModule aquí
+  imports: [FormsModule,HttpClientModule], // <-- Importa FormsModule aquí
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -18,7 +19,8 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
-    this.http.post('http://localhost:3000/auth/login', this.credentials)
+    
+    this.http.post('http://localhost:3000/api/Usuario/login', this.credentials)
       .subscribe(
         (response: any) => {
           // Guardar el token en el almacenamiento local

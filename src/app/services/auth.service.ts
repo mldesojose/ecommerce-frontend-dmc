@@ -28,7 +28,7 @@ export class AuthService {
   ): Promise<TokenResponse> {
     const body = { username, password };
     return firstValueFrom(
-      this.http.post<TokenResponse>(`${this.apiUrl}/api/login`, body)
+      this.http.post<TokenResponse>(`${this.apiUrl}/api/Usuario/login`, body)
     );
   }
 
