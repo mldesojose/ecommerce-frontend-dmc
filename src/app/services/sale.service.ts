@@ -4,12 +4,15 @@ import { Observable } from 'rxjs';
 import { SaleEntity } from '../shared/entities/sale.entity';
 import { PaginatedResult } from '../shared/models/paginated-result.model';
 import { DetSaleEntity } from '../shared/entities/detsale.entity';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaleService {
-    private apiUrl = `http://localhost:3000/api/sales`;
+
+   
+  private apiUrl = `${environment.apiUrl}/sales`;
 
   constructor(private http: HttpClient) { }
 

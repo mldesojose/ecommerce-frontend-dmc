@@ -4,6 +4,7 @@ import { Product } from '../shared/models/product.model';
 import { HttpClient } from '@angular/common/http';
 import { CreateSaleDto } from '../shared/models/createSaleDto.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -76,8 +77,9 @@ export class CartService {
       terminalCreacion: userData.terminal
     }));
 
+ 
     // Enviar al backend
-    return this.http.post(`http://localhost:3000/api/sales`, saleItems).pipe(
+    return this.http.post( `${environment.apiUrl}/sales`, saleItems).pipe(
       tap(() => {
         this.snackBar.open('¡Compra realizada con éxito!', 'Cerrar', {
           duration: 5000,
@@ -92,8 +94,7 @@ export class CartService {
         });
         return throwError(() => error);
       })
-    );
-    //return this.http.post(`${environment.apiUrl}/sales`, saleItems);
+    );    
   }
 
   /**

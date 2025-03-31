@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { UsuarioEntity } from '../shared/entities/usuario.entity';
 import { StorageService } from './storage.service';
+import { environment } from '../../environment/environment';
 
 interface User {
   username: string;
@@ -20,11 +21,9 @@ type TokenResponse = {
 })
 export class AuthService {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
-  private currentUser = new BehaviorSubject<User | null>(null);
-  //private currentUser: any;
-  
+  private currentUser = new BehaviorSubject<User | null>(null);    
 
-  private readonly apiUrl = "http://localhost:3000";
+  private readonly apiUrl = `${environment.apiUrl}`;
 
   constructor(
     private readonly http: HttpClient,
