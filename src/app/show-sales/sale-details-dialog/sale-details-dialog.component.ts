@@ -15,7 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 })
 export class SaleDetailsDialogComponent implements OnInit {
   sales: DetSaleEntity[] = [];
-  displayedColumns: string[] = ['item', 'idProducto', 'precio', 'porcentajeOferta', 'precioFinal'];
+  displayedColumns: string[] = ['item','idProducto', 'nomProducto', 'precio', 'porcentajeOferta', 'precioFinal'];
   loading = true;
 
   constructor(
