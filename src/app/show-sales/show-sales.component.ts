@@ -31,7 +31,7 @@ import { DetSaleEntity } from '../shared/entities/detsale.entity';
   styleUrls: ['./show-sales.component.css']
 })
 export class ShowSalesComponent implements OnInit {
-  displayedColumns: string[] = ['idVenta', 'idUsuario', 'montoVenta', 'observacion', 'activo', 'actions'];
+  displayedColumns: string[] = ['idVenta', 'idUsuario','nomPersona', 'montoVenta', 'observacion', 'activo', 'actions'];
   dataSource = new MatTableDataSource<SaleEntity>();
 
   isLoading = true;

@@ -14,10 +14,18 @@
   
         <!-- Usuario Column -->
         <ng-container matColumnDef="idUsuario">
-          <th mat-header-cell *matHeaderCellDef>ID Usuario</th>
+          <th mat-header-cell *matHeaderCellDef>ID comprador</th>
           <td mat-cell *matCellDef="let sale">{{ sale.idUsuario }}</td>
         </ng-container>
+
+        <!-- Usuario Column -->
+        <ng-container matColumnDef="nomPersona">
+          <th mat-header-cell *matHeaderCellDef>Nombre Comprador</th>
+          <td mat-cell *matCellDef="let sale">{{ sale.nomPersona }}</td>
+        </ng-container>
   
+  
+        
 
   
         <!-- Monto Column -->
