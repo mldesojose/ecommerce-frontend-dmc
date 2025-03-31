@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { MatSidenav } from '@angular/material/sidenav';
 import { SidebarService } from '../services/sidebar.service';
 import { StorageService } from '../services/storage.service';
 

@@ -36,7 +36,7 @@ export class AuthService {
   ): Promise<TokenResponse> {
     const body = { username, password };
     return firstValueFrom(
-      this.http.post<TokenResponse>(`${this.apiUrl}/api/Usuario/login`, body)
+      this.http.post<TokenResponse>(`${this.apiUrl}/Usuario/login`, body)
     ).catch((error) => {
       // Puedes agregar lógica adicional aquí si es necesario
       throw error; // El interceptor ya mostró el mensaje
@@ -49,7 +49,7 @@ export class AuthService {
   ): Promise<UsuarioEntity> {
     const body = { username, password };
     return firstValueFrom(
-      this.http.post<UsuarioEntity>(`${this.apiUrl}/api/Usuario/usuario`,body)
+      this.http.post<UsuarioEntity>(`${this.apiUrl}/Usuario/usuario`,body)
     ).catch((error) => {
       // Puedes agregar lógica adicional aquí si es necesario
       throw error; // El interceptor ya mostró el mensaje
