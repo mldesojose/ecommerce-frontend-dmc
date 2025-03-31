@@ -1,0 +1,19 @@
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .oferta-fields {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .oferta-fields mat-form-field {
+    flex: 1;
+  }
+  
+  mat-slide-toggle {
+    margin-bottom: 1rem;
+  }

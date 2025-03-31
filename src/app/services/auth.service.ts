@@ -1,9 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { UsuarioEntity } from '../shared/entities/usuario.entity';
+import { StorageService } from './storage.service';
 
 interface User {
   username: string;
+  rol:string;
+  userId:number;
   // Add more user properties if needed
 }
 
@@ -17,10 +21,15 @@ type TokenResponse = {
 export class AuthService {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private currentUser = new BehaviorSubject<User | null>(null);
+  //private currentUser: any;
+  
 
   private readonly apiUrl = "http://localhost:3000";
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private storageService: StorageService,
+  ) {}
 
   async loginService(
     username: string,
@@ -29,14 +38,37 @@ export class AuthService {
     const body = { username, password };
     return firstValueFrom(
       this.http.post<TokenResponse>(`${this.apiUrl}/api/Usuario/login`, body)
-    );
+    ).catch((error) => {
+      // Puedes agregar lógica adicional aquí si es necesario
+      throw error; // El interceptor ya mostró el mensaje
+    });
   }
 
+  async usuarioService(    
+    username: string,
+    password: string
+  ): Promise<UsuarioEntity> {
+    const body = { username, password };
+    return firstValueFrom(
+      this.http.post<UsuarioEntity>(`${this.apiUrl}/api/Usuario/usuario`,body)
+    ).catch((error) => {
+      // Puedes agregar lógica adicional aquí si es necesario
+      throw error; // El interceptor ya mostró el mensaje
+    });
+  }
+
+
   async login(username: string, password: string): Promise<boolean> {
-    const auth = await this.loginService(username, password);
+    const auth = await this.loginService(username, password);    
     if (auth.access_token) {
+
+ 
+      const usuario: UsuarioEntity = await this.usuarioService(username, password);
+      const rol = usuario.rol; // Aquí accedes al campo rol
+      const userId = usuario.idUsuario; 
+      
       // es correcto
-      const user: User = { username };
+      const user: User = { username, rol, userId };
       this.isAuthenticated.next(true);
       this.currentUser.next(user);
       localStorage.setItem('isLoggedIn', 'true');
@@ -44,6 +76,7 @@ export class AuthService {
       localStorage.setItem('access_token', auth.access_token);
       return true;
     }
+    this.logout();
     return false;
   }
 
@@ -79,4 +112,15 @@ export class AuthService {
       this.logout(); // Ensure clean state
     }
   }
+  isAuthenticateds(): boolean {
+    const rol = this.storageService.obtenerRol;
+    return rol == 'ADMIN';
+  }
+
+  hasAnyRole(role: string): boolean {
+    if (!role || role.length === 0) return true;
+    const user = this.getCurrentUser();
+    return user==null;
+  }
+
 }

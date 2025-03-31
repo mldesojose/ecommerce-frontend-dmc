@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Fondo rojo y texto blanco (sobrescribe TODOS los estilos de Angular Material) */
+.mat-mdc-snack-bar-container.error-snackbar {
+  --mdc-snackbar-container-color: #d1b2ed !important; /* Fondo rojo */
+  --mdc-snackbar-supporting-text-color: rgb(4, 76, 58) !important; /* Texto blanco */
+}
+
+/* Asegura que el botón "Cerrar" también sea blanco */
+.mat-mdc-snack-bar-container.error-snackbar .mat-mdc-button {
+  color: rgb(4, 76, 58) !important;  
+}
+
+/* Elimina cualquier sombra o efecto de superposición */
+.mat-mdc-snack-bar-container.error-snackbar .mdc-snackbar__surface {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+  /* ✅ Correcto */
+    
+.error-snackbar {
+  background-color:#d1b2ed!important; /* Fondo rojo */
+  color: rgb(4, 76, 58)  !important;
+  font-weight: bold  !important;
+}
+
+
+/* Contenedor (asegúrate de que coincida) */
+
+.mat-mdc-snack-bar-container.error-snackbar{
+  margin-top: 64px;
+  position: sticky;
+  height: 50px;
+  top: 0;
+  z-index: 1000;
+}

@@ -1,1 +1,89 @@
-<p>show-products works!</p>
+<div class="container">
+    <div class="header-actions">
+      <h2>Listado de Productos</h2>        
+      <mat-form-field class="search-field">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar productos">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field> 
+      <button mat-raised-button color="primary" (click)="openAddDialog()">
+        <mat-icon>add</mat-icon> Nuevo Producto
+      </button>    
+    </div>
+  
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- ID Column -->
+        <ng-container matColumnDef="idProducto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row">{{row.idProducto}}</td>
+        </ng-container>
+  
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="nomProducto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+          <td mat-cell *matCellDef="let row">{{row.nomProducto}}</td>
+        </ng-container>
+  
+        <!-- Descripción Column -->
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+          <td mat-cell *matCellDef="let row">{{row.descripcion}}</td>
+        </ng-container>
+  
+        <!-- Precio Column -->
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+          <td mat-cell *matCellDef="let row">{{row.precio | currency}}</td>
+        </ng-container>
+  
+        <!-- Oferta Column -->
+        <ng-container matColumnDef="isOferta">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>En Oferta</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-icon [style.color]="row.isOferta ? 'green' : 'red'">
+              {{row.isOferta ? 'check_circle' : 'cancel'}}
+            </mat-icon>
+          </td>
+        </ng-container>
+  
+        <!-- Porcentaje Oferta Column -->
+        <ng-container matColumnDef="porcentajeOferta">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>% Oferta</th>
+          <td mat-cell *matCellDef="let row">{{row.porcentajeOferta}}%</td>
+        </ng-container>
+  
+        <!-- Precio Final Column -->
+        <ng-container matColumnDef="precioFinal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio Final</th>
+          <td mat-cell *matCellDef="let row">{{row.precioFinal | currency}}</td>
+        </ng-container>
+  
+        <!-- Activo Column -->
+        <ng-container matColumnDef="activo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+          <td mat-cell *matCellDef="let row">            
+              {{row.activo ? 'Activo' : 'Inactivo'}}            
+          </td>
+        </ng-container>
+  
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="openEditDialog(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteProduct(row.idProducto)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>

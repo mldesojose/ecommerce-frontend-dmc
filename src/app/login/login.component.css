@@ -1,3 +1,9 @@
+/* Agrega al inicio de tu CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 /* Estilos generales */
 .container {
   display: flex;
@@ -43,9 +49,12 @@ h1 {
 }
 
 .welcome {
-  color: #13c276;
+  color: #7d0ae1;
   margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
+
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -59,6 +68,8 @@ label {
   font-weight: bold;
 }
 
+
+/* Inputs */
 input {
   width: 100%;
   padding: 0.75rem;
@@ -66,7 +77,9 @@ input {
   border-radius: 5px;
   font-size: 1rem;
   color: #37983d;
+  margin: 0; /* Elimina márgenes predeterminados */
 }
+
 
 .input:focus {
   border: 1px solid #4db978;
@@ -91,7 +104,7 @@ input {
 .login-button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #43ca76;
+  background-color: #8b43ca;
   color: white;
   border: none;
   border-radius: 5px;
@@ -99,17 +112,20 @@ input {
   cursor: pointer;
   margin-bottom: 1rem;
   transition: background-color 0.3s;
+  margin: 0; /* Elimina márgenes */
 }
 
+
+
 .login-button:hover {
-  background-color: #199227;
+  background-color: #810d9b;
 }
 
 .back-button {
   width: 100%;
   padding: 0.75rem;
   background-color: white;
-  color: #197532;
+  color:  #8b43ca;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;

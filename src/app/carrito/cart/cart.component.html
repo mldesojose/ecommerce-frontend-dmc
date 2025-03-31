@@ -1,0 +1,27 @@
+<div class="cart-container">
+  <button mat-icon-button [matBadge]="cartService.itemCount" matBadgePosition="after" class="green-badge">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  
+  <mat-list *ngIf="cartService.showCart" class="cart-list">
+    <mat-list-item *ngFor="let item of cartService.items" class="cart-item">
+      <img src="{{item.imgUrl}}" alt="{{item.nomProducto}}" class="product-image">
+      <span class="item-name">{{ item.nomProducto }}</span>
+      <span class="item-price">{{ item.precioFinal | currency }}</span>
+      <button mat-icon-button (click)="cartService.removeItem(item)" color="warn" class="remove-button">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item class="total-item">
+      <span class="total-text">Total: {{ cartService.total | currency }}</span>
+    </mat-list-item>
+        <!-- Botón Comprar -->
+  <button *ngIf="cartService.itemCount > 0" 
+          mat-raised-button 
+          color="warn" 
+          class="buy-button"
+          (click)="checkout()">
+    COMPRAR
+  </button>
+  </mat-list>
+</div>

@@ -1,0 +1,104 @@
+/* Contenedor principal */
+.container {
+    padding: 24px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* Barra de progreso */
+  mat-progress-bar {
+    margin-bottom: 16px;
+    border-radius: 4px;
+    height: 4px;
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    margin: 16px 0;
+    border-collapse: collapse;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Encabezados de tabla */
+  .mat-header-cell {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #f5f5f5;
+  }
+  
+  /* Celdas de tabla */
+  .mat-cell {
+    font-size: 14px;
+    padding: 12px 16px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  /* Filas alternas para mejor legibilidad */
+  .mat-row:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  /* Efecto hover en filas */
+  .mat-row:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Mensaje cuando no hay datos */
+  .no-data {
+    margin: 24px 0;
+    padding: 16px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 14px;
+  }
+  
+  /* Contenedor del botón */
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  /* Estilo del botón */
+  button[mat-raised-button] {
+    padding: 0 24px;
+    height: 36px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Efecto hover en botón */
+  button[mat-raised-button]:hover {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+                0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .container {
+      padding: 16px;
+    }
+    
+    .mat-cell, .mat-header-cell {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    
+    button[mat-raised-button] {
+      width: 100%;
+    }
+  }

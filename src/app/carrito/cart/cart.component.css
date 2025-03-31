@@ -1,0 +1,90 @@
+.cart-container {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000; 
+  }
+
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    gap: 15px;
+  }
+  
+  
+  mat-list {
+    background: rgba(199, 156, 223, 0.87);
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .item-name {
+    flex: 1;
+    margin-right: 8px;
+  }  
+  .item-price {
+    margin-right: 8px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  /* Estilo para el botón de eliminar */
+  [mat-icon-button].mat-warn {
+    color: #f9fafa; /* Rojo de Material Design */
+  }
+
+  /* En tu archivo de estilos del componente */
+.custom-badge .mat-badge-content {
+  background-color: #2196F3; /* Azul personalizado */
+  color: white;
+  font-weight: bold;
+}
+
+/* O para verde */
+.green-badge .mat-badge-content {
+  background-color: #4CAF50; /* Verde personalizado */
+  color: white;
+}
+
+.product-image {
+  width: 35px;
+  height: 35px;
+  /*object-fit: cover; *//* Ensure the image covers the area */
+}
+
+.remove-button {
+  margin-left: auto;
+}
+.total-item {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 5px 0;
+  font-size: 1.1em;
+}
+.total-text {
+  color: rebeccapurple;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.buy-button {
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  background-color: #f44336; /* Rojo Material Design */
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.buy-button:hover {
+  background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Asegúrate de que el mat-list tenga suficiente espacio en la parte inferior */
+.cart-list {
+  padding-bottom: 15px;
+}

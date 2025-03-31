@@ -1,0 +1,47 @@
+.container {
+    padding: 20px;
+  }
+  
+  .header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-field {
+    width: 300px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+    margin-right: 2%;
+  }
+  
+  .oferta-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  mat-icon {
+    cursor: pointer;
+  }
+  
+  mat-slide-toggle {
+    margin-left: 10px;
+  }
+  
+  .mat-column-acciones {
+    width: 120px;
+    text-align: center;
+  }

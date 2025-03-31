@@ -16,7 +16,7 @@
           <input 
             type="userName" 
             id="userName" 
-            [(ngModel)]="userName" 
+            [(ngModel)]="username" 
             name="userName"             
             required
           >
@@ -31,15 +31,10 @@
             name="password" 
             required
           >
-        </div>
-
-        <div class="links">
-          <a href="#" class="forgot-password">Olvidé mi contraseña</a>          
-        </div>
-
+        </div>  
         
-        <button type="submit" class="login-button">Iniciar Sesión</button>        
-        <button type="button" class="back-button" (click)="goBack()">Regresar</button>
+        <button type="submit" class="login-button">Iniciar Sesión</button>                
+       
       </form>
     </div>
   </div>
