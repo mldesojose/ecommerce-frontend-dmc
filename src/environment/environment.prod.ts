@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://api.tudominio.com/api', // URL de producción
+    apiUrl: 'https://ecommerce-backend-dmc.onrender.com/api', // URL de producción
 };
